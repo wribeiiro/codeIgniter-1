@@ -19,4 +19,11 @@ class produtos extends CI_Controller {
 		var_dump($resultado);
 	}
 
+	public function listar_tabela(){
+		$this->load->model("produtosModel", "produtos");
+		$resultado = $this->produtos->listar_todos();
+		$dados = array("produtos" => $resultado);
+		$this->load->view("produtos/lista_tabela", $dados);
+	}
+
 }
